@@ -152,6 +152,8 @@ class Score:
         self.fonto = pg.font.SysFont(None, 30)
         self.scorecount = 0
         self.img = self.fonto.render(f"Score:{self.scorecount}", True, (0, 0, 255))
+        self.rct = self.img.get_rect()
+        self.rct.center = (100, HEIGHT-50)
     
     def update(self, screen: pg.Surface ,):
         """
@@ -159,7 +161,7 @@ class Score:
         引数1 screen:画面Surface
         """
         self.img = self.fonto.render(f"Score:{self.scorecount}", True, (0, 0, 255))
-        screen.blit(self.img, [100, HEIGHT-50])
+        screen.blit(self.img, self.rct)
 
 
 def main():
