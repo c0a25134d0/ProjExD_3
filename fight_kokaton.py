@@ -174,6 +174,7 @@ def main():
     #     bomb = Bomb((255, 0, 0), 10)
     #     bombs.append(bomb)
     beam = None  # ゲーム初期化時にはビームは存在しない
+    multibeam = []
     score = Score()
     clock = pg.time.Clock()
     tmr = 0
@@ -183,7 +184,14 @@ def main():
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 # スペースキー押下でBeamクラスのインスタンス生成
-                beam = Beam(bird)            
+                beam = Beam(bird)       
+                multibeam.append(beam)
+        for beamx in multibeam:
+            if beamx.rct.colliderect(bomb.rct):
+                multibeam(beamx) = None
+                multibeam.remove(None)
+                if check_bound(beam.self.rct) == (True, True):
+                    multibeam.remove(beamx)
         screen.blit(bg_img, [0, 0])
         
         #if bomb is not None:
