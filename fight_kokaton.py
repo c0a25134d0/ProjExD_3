@@ -188,10 +188,11 @@ def main():
                 multibeam.append(beam)
         for beamx in multibeam:
             if beamx.rct.colliderect(bomb.rct):
-                multibeam(beamx) = None
-                multibeam.remove(None)
-                if check_bound(beam.self.rct) == (True, True):
-                    multibeam.remove(beamx)
+                multibeam[beamx] = None
+                if beamx is not None:
+                    listbeam.append(beamx)
+        if check_bound(beam.rct) == (True, True):
+            multibeam.remove(beamx)
         screen.blit(bg_img, [0, 0])
         
         #if bomb is not None:
