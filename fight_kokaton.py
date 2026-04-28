@@ -188,15 +188,15 @@ def main():
                 # スペースキー押下でBeamクラスのインスタンス生成
                 beam = Beam(bird)       
                 multibeam.append(beam)
-        for beamx in multibeam:
-            if beamx.rct.colliderect(bomb.rct):
-                multibeam(beamx) = None
-                multibeam.remove(None)
-                if check_bound(beam.self.rct) == (True, True):
-                    multibeam.remove(beamx)
+        # for beamx in multibeam:
+        #     if beamx.rct.colliderect(bomb.rct):
+        #         multibeam(beamx) = None
+        #         multibeam.remove(None)
+        #         if check_bound(beam.self.rct) == (True, True):
+        #             multibeam.remove(beamx)
         screen.blit(bg_img, [0, 0])
         
-        #if bomb is not None:
+         #if bomb is not None:
         for bomb in bombs:
             if bird.rct.colliderect(bomb.rct):
                 # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
@@ -208,7 +208,7 @@ def main():
                 time.sleep(1)
                 return
         
-        #if bomb is not None:
+         #if bomb is not None:
         for i, bomb in enumerate(bombs):  # enumerateはおそらくzipにすること？
             if beam is not None:
                 if beam.rct.colliderect(bomb.rct):  # 練習2：爆弾とビームの衝突判定
@@ -226,7 +226,7 @@ def main():
         bird.update(key_lst, screen)
         if beam is not None:
             beam.update(screen)   
-        #if bomb is not None:
+         #if bomb is not None:
         for bomb in bombs:
             bomb.update(screen)
         score.update(screen)
